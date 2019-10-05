@@ -4,6 +4,7 @@
 samples/out/
 tests/bin/
 
+.vs
 
 *.exe
 Debug/
@@ -11,3 +12,5 @@ Release/
 *.sdf
 *.opensdf
 *.suo
+
+*.user

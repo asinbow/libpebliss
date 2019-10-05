@@ -439,6 +439,9 @@ void pe_base::prepare_section(section& s)
 	//Calculate its size of raw data
 	s.set_size_of_raw_data(static_cast<uint32_t>(pe_utils::align_up(s.get_raw_data().length(), get_file_alignment())));
 
+	//Ensure that the buffer is the correct size
+	s.get_raw_data().resize(s.get_size_of_raw_data());
+
 	//Check section virtual and raw size
 	if(!s.get_size_of_raw_data() && !s.get_virtual_size())
 		throw pe_exception("Virtual and Physical sizes of section can't be 0 at the same time", pe_exception::zero_section_sizes);
